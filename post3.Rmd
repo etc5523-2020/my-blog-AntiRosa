@@ -1,4 +1,8 @@
-compared the death cov19 data between Poland and others country, Poland is 34th
+compared the death cov19 data between Poland and others country
+
+Poland is 34th
+
+The number of death people in Poland is 2078, which is about 1% of the United States
 
 ```{r setup, include = FALSE}
 library(tidyverse)

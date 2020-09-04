@@ -1,5 +1,8 @@
-compared the confirmed cov19 data between Poland and others country,
+compared the confirmed cov19 data between Poland and others country
+
 Poland is 43th
+
+The number of people infected in Poland is 68,517, which is about 1% of the United States
 
 ```{r setup, include = FALSE}
 library(tidyverse)
