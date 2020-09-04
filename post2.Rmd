@@ -1,0 +1,21 @@
+compared the confirmed cov19 data between Poland and others country,
+Poland is 43th
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(coronavirus)
+library(kableExtra)
+```
+
+
+
+```{r, echo=FALSE, include=TRUE,Warning = FALSE}
+summary_df <- coronavirus %>% 
+  filter(type == "confirmed") %>%
+  group_by(country) %>%
+  summarise(total_cases = sum(cases)) %>%
+  arrange(-total_cases)
+summary_df %>%        head(50)%>%
+kable()
+```
+```

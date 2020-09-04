@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>post1.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COV19 in Poland</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">About blog</a>
+</li>
+<li>
+  <a href="post1.html">For country</a>
+</li>
+<li>
+  <a href="post2.html">Table for confirmed in poland</a>
+</li>
+<li>
+  <a href="post3.html">Table for death in poland</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p>Plot the confirmed cases distribution by counrty, Poland is 45th</p>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## Warning: `arrange_()` is deprecated as of dplyr 0.7.0.
+## Please use `arrange()` instead.
+## See vignette(&#39;programming&#39;) for more help
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<div id="htmlwidget-d609c0c3c92b1971f8ed" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d609c0c3c92b1971f8ed">{"x":{"visdat":{"2a44254d5c":["function () ","plotlyVisDat"]},"cur_data":"2a44254d5c","attrs":{"2a44254d5c":{"values":{},"labels":{},"parents":{},"domain":{"column":0},"textinfo":"label+value+percent parent","name":"Confirmed","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sunburst"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"values":[6113510,3997865,3853406,1001965,657129,633321,630595,610957,479554,439172,414739,378752,340929,331060,317528,317486,297014,273301,271515,247411,242284,226440,180646,131941,128833,121464,119206,117928,115457,106032,99280,95627,94084,89953,89891,86478,85928,85911,84532,75644,74660,72141,71540,69619,68517,65453,62526,58633,56860,54463,54409,52807,48883,45158,44658,44075,44036,43305,42763,42437,41649,38243,37740,36732,34493,31581,29114,27969,26049,25904,25773,23875,20644,20517,19460,19138,18375,18161,17620,16617,15156,15023,14600,13743,13189,12683,12415,11034,10757,10725,10114,9728,9479,9360,8654,8538,8258,8161,8140,7844,7089,6745,6638,6622,5579,5387,5019,4965,4712,4668,4668,4628,4218,4196,4149,4126,4117,4048,4042,3427,3310,3112,3101,3067,2979,2958,2898,2802,2777,2683,2532,2415,2337,2205,2194,2161,2121,2029,1976,1931,1920,1759,1724,1626,1548,1495,1434,1406,1382,1370,1305,1199,1176,1101,1085,1046,1017,995,896,735,712,509,489,471,448,427,356,319,306,274,227,176,144,142,136,107,94,61,29,27,26,24,22,20,17,12,10,9],"labels":["US","Brazil","India","Russia","Peru","Colombia","South Africa","Mexico","Spain","Argentina","Chile","Iran","United Kingdom","France","Bangladesh","Saudi Arabia","Pakistan","Turkey","Italy","Germany","Iraq","Philippines","Indonesia","Canada","Ukraine","Israel","Qatar","Bolivia","Ecuador","Kazakhstan","Egypt","Dominican Republic","Panama","China","Romania","Kuwait","Oman","Belgium","Sweden","Guatemala","Netherlands","Belarus","United Arab Emirates","Japan","Poland","Morocco","Honduras","Portugal","Singapore","Nigeria","Ethiopia","Bahrain","Venezuela","Algeria","Ghana","Armenia","Kyrgyzstan","Costa Rica","Switzerland","Uzbekistan","Nepal","Afghanistan","Moldova","Azerbaijan","Kenya","Serbia","Ireland","Austria","Australia","El Salvador","Czechia","West Bank and Gaza","Korea, South","Bosnia and Herzegovina","Cameroon","Paraguay","Lebanon","Cote d'Ivoire","Denmark","Bulgaria","Libya","Madagascar","North Macedonia","Senegal","Sudan","Kosovo","Zambia","Norway","Greece","Croatia","Congo (Kinshasa)","Albania","Guinea","Malaysia","Tajikistan","Gabon","Haiti","Finland","Maldives","Namibia","Mauritania","Luxembourg","Zimbabwe","Hungary","Malawi","Djibouti","Montenegro","Equatorial Guinea","Central African Republic","Eswatini","Nicaragua","Congo (Brazzaville)","Rwanda","Tunisia","Suriname","Cuba","Mozambique","Cabo Verde","Slovakia","Thailand","Somalia","Uganda","Sri Lanka","Gambia","Slovenia","Lithuania","Syria","Mali","Angola","Jamaica","South Sudan","Estonia","Bahamas","Guinea-Bissau","Benin","Jordan","Iceland","Sierra Leone","Yemen","Malta","Trinidad and Tobago","New Zealand","Botswana","Uruguay","Georgia","Cyprus","Togo","Latvia","Guyana","Burkina Faso","Liberia","Andorra","Niger","Belize","Lesotho","Vietnam","Chad","Burma","Sao Tome and Principe","San Marino","Diamond Princess","Tanzania","Taiwan*","Papua New Guinea","Burundi","Comoros","Mauritius","Eritrea","Mongolia","Cambodia","Bhutan","Barbados","Brunei","Monaco","Seychelles","Liechtenstein","Antigua and Barbuda","Saint Vincent and the Grenadines","Fiji","Timor-Leste","Saint Lucia","Grenada","Laos","Dominica","Saint Kitts and Nevis","Holy See","Western Sahara","MS Zaandam"],"parents":["Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed","Confirmed"],"domain":{"column":0},"textinfo":"label+value+percent parent","name":"Confirmed","type":"sunburst","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

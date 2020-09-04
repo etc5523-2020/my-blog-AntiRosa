@@ -1,0 +1,14 @@
+output_dir: "docs"
+navbar:
+   title: "COV19 in Poland"
+   left:
+     - text: "About blog"
+       href: index.html
+     - text: "For country"
+       href: post1.html
+     - text: "Table for confirmed in poland"
+       href: post2.html
+     - text: "Table for death in poland"
+       href: post3.html
+output:
+html_document:
