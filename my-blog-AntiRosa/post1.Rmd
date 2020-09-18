@@ -1,0 +1,62 @@
+Compare Austria with the world
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(tidyverse)
+library(coronavirus)
+library(kableExtra)
+library(base)
+library(coronavirus)
+library(tibble)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(tidyr)
+library(plotly)
+```
+
+```{r, echo=FALSE, include=TRUE}
+conf_df <- coronavirus %>% 
+  filter(type == "confirmed") %>%
+  group_by(country) %>%
+  summarise(total_cases = sum(cases)) %>%
+  arrange(-total_cases) %>%
+  mutate(parents = "Confirmed") %>%
+  ungroup() 
+  
+  plot_ly(data = conf_df,
+          type="sunburst",
+          values = ~total_cases,
+          labels= ~ country,
+          parents=  ~parents,
+          domain = list(column=0),
+          name = "Confirmed",
+          textinfo="label+value+percent parent")
+```
+
+The number of confirmed cases in Austria is very low, and the world ranks outside one hundred, which means it is almost invisible in the statistical graph.
+
+Indicating that the number of infections in Austria is very low
+
+```{r,echo=FALSE, include=TRUE}
+conf_df <- coronavirus %>% 
+  filter(type == "death") %>%
+  group_by(country) %>%
+  summarise(total_cases = sum(cases)) %>%
+  arrange(-total_cases) %>%
+  mutate(parents = "Death") %>%
+  ungroup() 
+  
+  plot_ly(data = conf_df,
+          type="treemap",
+          values = ~total_cases,
+          labels= ~ country,
+          parents=  ~parents,
+          domain = list(column=0),
+          name = "Confirmed",
+          textinfo="label+value+percent parent")
+```
+
+Although the number of infected people is not large, the mortality rate is about 65th in the world so we can see it in the graph.
+
+Indicating that the cure rate is not high

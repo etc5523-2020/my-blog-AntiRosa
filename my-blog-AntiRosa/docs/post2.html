@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>post2.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COV19</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">About blog</a>
+</li>
+<li>
+  <a href="post1.html">Compare Austria with the world</a>
+</li>
+<li>
+  <a href="post2.html">Table for confirmed in Poland</a>
+</li>
+<li>
+  <a href="post3.html">Table for death in Poland</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p>compared the confirmed cov19 data between Poland and others country</p>
+<p>Poland is 43th</p>
+<p>The number of people infected in Poland is 68,517, which is about 1% of the United States</p>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:right;">
+total_cases
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+US
+</td>
+<td style="text-align:right;">
+6113510
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brazil
+</td>
+<td style="text-align:right;">
+3997865
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+India
+</td>
+<td style="text-align:right;">
+3853406
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Russia
+</td>
+<td style="text-align:right;">
+1001965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Peru
+</td>
+<td style="text-align:right;">
+657129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Colombia
+</td>
+<td style="text-align:right;">
+633321
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+South Africa
+</td>
+<td style="text-align:right;">
+630595
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mexico
+</td>
+<td style="text-align:right;">
+610957
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Spain
+</td>
+<td style="text-align:right;">
+479554
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+439172
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chile
+</td>
+<td style="text-align:right;">
+414739
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Iran
+</td>
+<td style="text-align:right;">
+378752
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United Kingdom
+</td>
+<td style="text-align:right;">
+340929
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+France
+</td>
+<td style="text-align:right;">
+331060
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bangladesh
+</td>
+<td style="text-align:right;">
+317528
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Saudi Arabia
+</td>
+<td style="text-align:right;">
+317486
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pakistan
+</td>
+<td style="text-align:right;">
+297014
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Turkey
+</td>
+<td style="text-align:right;">
+273301
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Italy
+</td>
+<td style="text-align:right;">
+271515
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Germany
+</td>
+<td style="text-align:right;">
+247411
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Iraq
+</td>
+<td style="text-align:right;">
+242284
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Philippines
+</td>
+<td style="text-align:right;">
+226440
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indonesia
+</td>
+<td style="text-align:right;">
+180646
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Canada
+</td>
+<td style="text-align:right;">
+131941
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ukraine
+</td>
+<td style="text-align:right;">
+128833
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Israel
+</td>
+<td style="text-align:right;">
+121464
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Qatar
+</td>
+<td style="text-align:right;">
+119206
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bolivia
+</td>
+<td style="text-align:right;">
+117928
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ecuador
+</td>
+<td style="text-align:right;">
+115457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kazakhstan
+</td>
+<td style="text-align:right;">
+106032
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Egypt
+</td>
+<td style="text-align:right;">
+99280
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dominican Republic
+</td>
+<td style="text-align:right;">
+95627
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Panama
+</td>
+<td style="text-align:right;">
+94084
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+<td style="text-align:right;">
+89953
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Romania
+</td>
+<td style="text-align:right;">
+89891
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kuwait
+</td>
+<td style="text-align:right;">
+86478
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oman
+</td>
+<td style="text-align:right;">
+85928
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Belgium
+</td>
+<td style="text-align:right;">
+85911
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sweden
+</td>
+<td style="text-align:right;">
+84532
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Guatemala
+</td>
+<td style="text-align:right;">
+75644
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+74660
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Belarus
+</td>
+<td style="text-align:right;">
+72141
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United Arab Emirates
+</td>
+<td style="text-align:right;">
+71540
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Japan
+</td>
+<td style="text-align:right;">
+69619
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Poland
+</td>
+<td style="text-align:right;">
+68517
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Morocco
+</td>
+<td style="text-align:right;">
+65453
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Honduras
+</td>
+<td style="text-align:right;">
+62526
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Portugal
+</td>
+<td style="text-align:right;">
+58633
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Singapore
+</td>
+<td style="text-align:right;">
+56860
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nigeria
+</td>
+<td style="text-align:right;">
+54463
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ethiopia
+</td>
+<td style="text-align:right;">
+54409
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bahrain
+</td>
+<td style="text-align:right;">
+52807
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Venezuela
+</td>
+<td style="text-align:right;">
+48883
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Algeria
+</td>
+<td style="text-align:right;">
+45158
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ghana
+</td>
+<td style="text-align:right;">
+44658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Armenia
+</td>
+<td style="text-align:right;">
+44075
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kyrgyzstan
+</td>
+<td style="text-align:right;">
+44036
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Costa Rica
+</td>
+<td style="text-align:right;">
+43305
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Switzerland
+</td>
+<td style="text-align:right;">
+42763
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Uzbekistan
+</td>
+<td style="text-align:right;">
+42437
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nepal
+</td>
+<td style="text-align:right;">
+41649
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+38243
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Moldova
+</td>
+<td style="text-align:right;">
+37740
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Azerbaijan
+</td>
+<td style="text-align:right;">
+36732
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kenya
+</td>
+<td style="text-align:right;">
+34493
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Serbia
+</td>
+<td style="text-align:right;">
+31581
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ireland
+</td>
+<td style="text-align:right;">
+29114
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Austria
+</td>
+<td style="text-align:right;">
+27969
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:right;">
+26049
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+El Salvador
+</td>
+<td style="text-align:right;">
+25904
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Czechia
+</td>
+<td style="text-align:right;">
+25773
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+West Bank and Gaza
+</td>
+<td style="text-align:right;">
+23875
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Korea, South
+</td>
+<td style="text-align:right;">
+20644
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bosnia and Herzegovina
+</td>
+<td style="text-align:right;">
+20517
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cameroon
+</td>
+<td style="text-align:right;">
+19460
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Paraguay
+</td>
+<td style="text-align:right;">
+19138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lebanon
+</td>
+<td style="text-align:right;">
+18375
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cote d’Ivoire
+</td>
+<td style="text-align:right;">
+18161
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Denmark
+</td>
+<td style="text-align:right;">
+17620
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bulgaria
+</td>
+<td style="text-align:right;">
+16617
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Libya
+</td>
+<td style="text-align:right;">
+15156
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Madagascar
+</td>
+<td style="text-align:right;">
+15023
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+North Macedonia
+</td>
+<td style="text-align:right;">
+14600
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Senegal
+</td>
+<td style="text-align:right;">
+13743
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sudan
+</td>
+<td style="text-align:right;">
+13189
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kosovo
+</td>
+<td style="text-align:right;">
+12683
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Zambia
+</td>
+<td style="text-align:right;">
+12415
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Norway
+</td>
+<td style="text-align:right;">
+11034
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Greece
+</td>
+<td style="text-align:right;">
+10757
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Croatia
+</td>
+<td style="text-align:right;">
+10725
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Congo (Kinshasa)
+</td>
+<td style="text-align:right;">
+10114
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Albania
+</td>
+<td style="text-align:right;">
+9728
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Guinea
+</td>
+<td style="text-align:right;">
+9479
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Malaysia
+</td>
+<td style="text-align:right;">
+9360
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tajikistan
+</td>
+<td style="text-align:right;">
+8654
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gabon
+</td>
+<td style="text-align:right;">
+8538
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Haiti
+</td>
+<td style="text-align:right;">
+8258
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Finland
+</td>
+<td style="text-align:right;">
+8161
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maldives
+</td>
+<td style="text-align:right;">
+8140
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Namibia
+</td>
+<td style="text-align:right;">
+7844
+</td>
+</tr>
+</tbody>
+</table>
+<p>```</p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
